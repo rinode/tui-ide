@@ -37,6 +37,20 @@ Available lists:
 
 To add a new list, create a file in `cheatsheets/` and add an entry to the `MENUS` array in `menu.sh`.
 
+## Layout
+
+On startup, the workspace opens with three panes:
+
+```
+┌──────────┬─────────────────┬─────────────┐
+│          │                 │ Claude Code │
+│ neo-tree │     editor      ├─────────────┤
+│          │                 │    bash     │
+└──────────┴─────────────────┴─────────────┘
+```
+
+Navigate between panes with `Ctrl+w h/j/k/l` (or `Ctrl+w w` to cycle). To navigate out of a terminal, press `Ctrl+\ Ctrl+n` first to exit insert mode.
+
 ## Neovim keybindings
 
 | Key | Action |
