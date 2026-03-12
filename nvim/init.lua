@@ -161,11 +161,26 @@ require("lazy").setup({
   },
 })
 
--- Open neo-tree automatically on startup
+-- Open neo-tree, Claude Code, and bash terminal on startup
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     require("neo-tree.command").execute({ action = "show" })
     vim.cmd("wincmd l")
+    local editor_win = vim.api.nvim_get_current_win()
+
+    vim.schedule(function()
+      -- Open Claude Code on the right (ensure plugin is loaded first)
+      require("lazy").load({ plugins = { "claudecode.nvim" } })
+      vim.cmd("ClaudeCode")
+
+      -- Move to the Claude pane and open bash terminal below it
+      vim.cmd("wincmd l")
+      vim.cmd("belowright 15split | terminal")
+      vim.cmd("stopinsert")
+
+      -- Return focus to editor
+      vim.api.nvim_set_current_win(editor_win)
+    end)
   end,
 })
 
