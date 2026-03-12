@@ -167,11 +167,55 @@ require("lazy").setup({
           offsets = {
             { filetype = "neo-tree", text = "Files", highlight = "Directory", separator = true }
           },
+          custom_filter = function(buf_number)
+            return vim.bo[buf_number].buftype ~= "terminal"
+          end,
         },
       })
     end,
   },
 })
+
+-- Persistent bash terminal: tracks buffer/window so closing the window doesn't kill the terminal
+local _bash_term_buf = nil
+local _bash_term_win = nil
+
+local function toggle_bash_terminal()
+  -- If visible, hide (close window but keep buffer alive)
+  if _bash_term_win and vim.api.nvim_win_is_valid(_bash_term_win) then
+    vim.api.nvim_win_close(_bash_term_win, false)
+    _bash_term_win = nil
+    return
+  end
+
+  -- Find the rightmost window to split below (skipping the term buffer itself)
+  local target_win = nil
+  local max_col = -1
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if _bash_term_buf and buf == _bash_term_buf then goto continue end
+    local pos = vim.api.nvim_win_get_position(win)
+    if pos[2] > max_col then
+      max_col = pos[2]
+      target_win = win
+    end
+    ::continue::
+  end
+
+  local prev_win = vim.api.nvim_get_current_win()
+  if target_win then vim.api.nvim_set_current_win(target_win) end
+
+  if _bash_term_buf and vim.api.nvim_buf_is_valid(_bash_term_buf) then
+    vim.cmd("belowright 15split")
+    vim.api.nvim_win_set_buf(0, _bash_term_buf)
+  else
+    vim.cmd("belowright 15split | terminal")
+    _bash_term_buf = vim.api.nvim_win_get_buf(0)
+  end
+  _bash_term_win = vim.api.nvim_get_current_win()
+  vim.cmd("stopinsert")
+  vim.api.nvim_set_current_win(prev_win)
+end
 
 -- Open neo-tree, Claude Code, and bash terminal on startup
 vim.api.nvim_create_autocmd("VimEnter", {
@@ -187,8 +231,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
       -- Move to the Claude pane and open bash terminal below it
       vim.cmd("wincmd l")
-      vim.cmd("belowright 15split | terminal")
-      vim.cmd("stopinsert")
+      toggle_bash_terminal()
 
       -- Return focus to editor
       vim.api.nvim_set_current_win(editor_win)
