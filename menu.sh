@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # Reference menu popup. Add entries to MENUS to extend it.
 
-DOTFILES="${DOTFILES:-$(cd "$(dirname "$0")/.." && pwd)}"
+DOTFILES="${DOTFILES:-$(cd "$(dirname "$0")" && pwd)}"
 
 declare -A MENUS=(
   ["Vim cheat sheet"]="$DOTFILES/cheatsheets/vim"
-  ["Tmux cheat sheet"]="$DOTFILES/cheatsheets/tmux"
   ["Git cheat sheet"]="$DOTFILES/cheatsheets/git"
   ["Claude Code cheat sheet"]="$DOTFILES/cheatsheets/claude"
 )

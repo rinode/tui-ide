@@ -1,12 +1,11 @@
 # tui-ide
 
-A self-contained terminal workspace: Neovim + Claude Code + tmux, configured from a single repo.
+A self-contained terminal workspace: Neovim + Claude Code, configured from a single repo.
 
 ![tui-ide example](example.png)
 
 ## Requirements
 
-- tmux >= 3.2
 - nvim >= 0.11
 - claude (Claude Code CLI)
 - fzf >= 0.27
@@ -26,40 +25,17 @@ On first run, JetBrainsMono Nerd Font is installed automatically. Set it as your
 
 On first Neovim launch, lazy.nvim bootstraps itself and installs all plugins. Mason installs the configured LSP servers (TypeScript, PHP) in the background.
 
-## Layout
-
-```
-Window 1 (editor)
-+---------------------------+----------+
-|                           |  claude  |
-|          nvim             +----------+
-|                           |  shell   |
-+---------------------------+----------+
-
-Window 2 (shell)
-+-------------------------------------+
-|              shell                  |
-+-------------------------------------+
-|              shell                  |
-+-------------------------------------+
-```
-
-Switch windows with `Ctrl+b 1` / `Ctrl+b 2`.
-
 ## Reference menu
 
-Press `Ctrl+b /` from any pane to open a searchable reference menu. Select a list and type to filter.
+Press `<leader>/` to open a searchable reference menu. Select a list and type to filter.
 
 Available lists:
 
 - Vim cheat sheet
-- Tmux cheat sheet
 - Git cheat sheet
 - Claude Code cheat sheet
 
-The same menu is available inside Neovim with `<leader>/`.
-
-To add a new list, create a file in `cheatsheets/` and add an entry to the `MENUS` array in `tmux/tmux-menu.sh`.
+To add a new list, create a file in `cheatsheets/` and add an entry to the `MENUS` array in `menu.sh`.
 
 ## Neovim keybindings
 
@@ -95,7 +71,6 @@ To add a new list, create a file in `cheatsheets/` and add an entry to the `MENU
 
 ## Customization
 
-- **tmux config**: `tmux/tmux.conf`
 - **Neovim config**: `nvim/init.lua`
 - **LSP servers**: edit `ensure_installed` in `nvim/init.lua`
 - **Cheat sheets**: plain text files in `cheatsheets/`

@@ -176,11 +176,10 @@ vim.keymap.set("n", "<S-l>", ":BufferLineCycleNext<CR>", { silent = true })
 vim.keymap.set("n", "<S-h>", ":BufferLineCyclePrev<CR>", { silent = true })
 vim.keymap.set("n", "<leader>x", ":bdelete<CR>", { silent = true })
 
--- <leader>/ opens the reference menu popup (same as Prefix+/ in tmux)
+-- <leader>/ opens the reference menu in a floating terminal
 vim.keymap.set("n", "<leader>/", function()
   local dotfiles = vim.fn.getenv("XDG_CONFIG_HOME")
-  vim.fn.jobstart(
-    "tmux display-popup -E -w 80% -h 80% " .. dotfiles .. "/tmux/tmux-menu.sh",
-    { detach = true }
-  )
+  require("snacks").terminal(dotfiles .. "/menu.sh", {
+    win = { style = "float", width = 0.8, height = 0.8 },
+  })
 end, { silent = true, desc = "Reference menu" })
