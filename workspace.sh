@@ -34,8 +34,7 @@ tmux set-environment -t "$SESSION" XDG_CONFIG_HOME "$DOTFILES"
 # Window 1: nvim (left 65%) | claude (top-right) | shell (bottom-right)
 tmux send-keys -t "$SESSION:editor" "XDG_CONFIG_HOME='$DOTFILES' nvim" Enter
 
-tmux split-window -h -p 35 -t "$SESSION:editor" -c "$DIR"
-tmux send-keys -t "$SESSION:editor" "claude" Enter
+tmux split-window -h -p 35 -t "$SESSION:editor" -c "$DIR" "claude"
 
 tmux split-window -v -p 30 -t "$SESSION:editor" -c "$DIR"
 
