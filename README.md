@@ -1,4 +1,4 @@
-# tui-ide
+# nvim-ide
 
 A self-contained terminal workspace: Neovim + Claude Code, configured from a single repo.
 
@@ -14,8 +14,8 @@ A self-contained terminal workspace: Neovim + Claude Code, configured from a sin
 ## Setup
 
 ```bash
-git clone <repo> ~/tui-ide
-cd ~/tui-ide
+git clone <repo> ~/nvim-ide
+cd ~/nvim-ide
 ./workspace.sh [project-dir]
 ```
 
