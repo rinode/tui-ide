@@ -1,0 +1,38 @@
+[status]     git status               Show working tree status
+[status]     git log --oneline        Compact commit history
+[status]     git log --oneline --graph  History with branch graph
+[status]     git diff                 Unstaged changes
+[status]     git diff --staged        Staged changes (pre-commit)
+[branch]     git branch               List local branches
+[branch]     git branch -a            List all branches (incl. remote)
+[branch]     git branch foo           Create branch foo
+[branch]     git checkout foo         Switch to branch foo
+[branch]     git checkout -b foo      Create and switch to branch foo
+[branch]     git branch -d foo        Delete branch foo (safe)
+[branch]     git branch -D foo        Delete branch foo (force)
+[stage]      git add file             Stage a file
+[stage]      git add -p               Stage changes interactively (hunks)
+[stage]      git restore file         Discard unstaged changes in file
+[stage]      git restore --staged file  Unstage a file
+[commit]     git commit -m "msg"      Commit with message
+[commit]     git commit --amend       Amend last commit (before push)
+[remote]     git fetch                Fetch all remotes (no merge)
+[remote]     git pull                 Fetch and merge current branch
+[remote]     git push                 Push current branch
+[remote]     git push -u origin foo   Push and set upstream
+[merge]      git merge foo            Merge branch foo into current
+[merge]      git merge --abort        Abort in-progress merge
+[rebase]     git rebase main          Rebase current branch onto main
+[rebase]     git rebase -i HEAD~3     Interactive rebase last 3 commits
+[rebase]     git rebase --abort       Abort in-progress rebase
+[rebase]     git rebase --continue    Continue after resolving conflict
+[stash]      git stash                Stash uncommitted changes
+[stash]      git stash pop            Apply and drop latest stash
+[stash]      git stash list           List all stashes
+[stash]      git stash drop           Drop latest stash
+[reset]      git reset HEAD~1         Undo last commit, keep changes staged
+[reset]      git reset --soft HEAD~1  Undo last commit, keep changes staged
+[reset]      git reset --hard HEAD~1  Undo last commit, discard changes
+[find]       git log -S "string"      Find commits that added/removed string
+[find]       git log -- path/file     History for a specific file
+[find]       git blame file           Show who changed each line

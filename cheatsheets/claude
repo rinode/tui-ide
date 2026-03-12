@@ -1,0 +1,42 @@
+[cmd]        /clear               Clear conversation history (alias: /new, /reset)
+[cmd]        /compact             Compact conversation to save context
+[cmd]        /context             Visualize current context usage
+[cmd]        /cost                Show token usage statistics
+[cmd]        /diff                Open interactive diff viewer
+[cmd]        /export              Export conversation as plain text
+[cmd]        /fork                Fork conversation at current point
+[cmd]        /help                Show help and available commands
+[cmd]        /hooks               Manage hook configurations
+[cmd]        /init                Initialize project with CLAUDE.md
+[cmd]        /keybindings         Open keybindings configuration
+[cmd]        /memory              Edit CLAUDE.md memory files
+[cmd]        /mcp                 Manage MCP server connections
+[cmd]        /model               Select or change AI model
+[cmd]        /permissions         View or update allowed tools
+[cmd]        /plan                Enter plan mode
+[cmd]        /pr-comments         Fetch comments from GitHub pull request
+[cmd]        /resume              Resume a previous conversation
+[cmd]        /rewind              Rewind conversation to a previous point
+[cmd]        /status              Show version, model, account, connectivity
+[cmd]        /tasks               List and manage background tasks
+[cmd]        /theme               Change color theme
+[cmd]        /vim                 Toggle Vim editing mode
+[key]        Ctrl+C               Cancel current input or generation
+[key]        Ctrl+D               Exit Claude Code
+[key]        Ctrl+L               Clear terminal screen
+[key]        Ctrl+G               Open prompt in external editor
+[key]        Ctrl+O               Toggle verbose output
+[key]        Ctrl+R               Search command history
+[key]        Ctrl+T               Toggle task list
+[key]        Ctrl+B               Background current running task
+[key]        Shift+Tab            Cycle permission modes (Normal/Plan/Auto)
+[key]        Alt+P                Switch model
+[key]        Alt+T                Toggle extended thinking
+[key]        Esc Esc              Rewind conversation
+[key]        Up / Down            Navigate command history
+[input]      !cmd                 Run bash command directly
+[input]      @path                Trigger file path autocomplete
+[input]      \ + Enter            New line in prompt (all terminals)
+[input]      Shift+Enter          New line (iTerm2, WezTerm, Ghostty, Kitty)
+[input]      Ctrl+V               Paste image from clipboard
+[mode]       Shift+Tab            Switch Auto-Accept / Plan / Normal mode

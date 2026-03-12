@@ -1,0 +1,60 @@
+[mode]       i                    Insert before cursor
+[mode]       a                    Insert after cursor
+[mode]       o                    New line below and insert
+[mode]       O                    New line above and insert
+[mode]       v                    Visual - select characters
+[mode]       V                    Visual line - select whole lines
+[mode]       ESC / Ctrl+[         Return to Normal mode
+[move]       h j k l              Left / Down / Up / Right
+[move]       w                    Jump to next word start
+[move]       b                    Jump to previous word start
+[move]       e                    Jump to end of word
+[move]       0                    Start of line
+[move]       $                    End of line
+[move]       gg                   Go to top of file
+[move]       G                    Go to bottom of file
+[move]       Ctrl+d               Scroll half-page down
+[move]       Ctrl+u               Scroll half-page up
+[move]       { }                  Jump up / down by paragraph
+[edit]       u                    Undo
+[edit]       Ctrl+r               Redo
+[edit]       yy                   Copy (yank) current line
+[edit]       yw                   Copy word
+[edit]       dd                   Cut current line
+[edit]       dw                   Cut word
+[edit]       p                    Paste after cursor
+[edit]       P                    Paste before cursor
+[edit]       x                    Delete character under cursor
+[edit]       r{char}              Replace character under cursor
+[edit]       cc                   Delete line and enter insert
+[edit]       cw                   Change word (delete + insert)
+[edit]       >>                   Indent line right
+[edit]       <<                   Indent line left
+[edit]       .                    Repeat last change
+[search]     /foo                 Search forward for "foo"
+[search]     ?foo                 Search backward for "foo"
+[search]     n / N                Next / previous match
+[search]     *                    Search for word under cursor
+[search]     :s/old/new/g         Replace in current line
+[search]     :%s/old/new/g        Replace in whole file
+[search]     :%s/old/new/gc       Replace in whole file with confirmation
+[file]       :w                   Save
+[file]       :q                   Quit
+[file]       :wq                  Save and quit
+[file]       :q!                  Quit without saving
+[file]       :e filename          Open file
+[buffer]     Shift+L              Next buffer/tab
+[buffer]     Shift+H              Previous buffer/tab
+[buffer]     <leader>x            Close current buffer  (leader = SPACE)
+[split]      :vsp                 Split vertically
+[split]      :sp                  Split horizontally
+[split]      Ctrl+w h/l           Move left/right between splits
+[split]      Ctrl+w j/k           Move down/up between splits
+[split]      Ctrl+w q             Close split
+[tree]       <leader>e            Toggle file tree (Neo-tree)
+[lsp]        gd                   Go to definition
+[lsp]        gr                   Show references
+[lsp]        K                    Hover docs / type info
+[lsp]        <leader>rn           Rename symbol
+[lsp]        <leader>ca           Code action (quick fixes)
+[lsp]        <leader>f            Format file
