@@ -1,4 +1,5 @@
 vim.opt.swapfile = false
+vim.g.mapleader = " "
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -127,6 +128,23 @@ require("lazy").setup({
     },
   },
 
+  -- Fuzzy file finder
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("fzf-lua").setup({
+        winopts = { height = 0.6, width = 0.6, preview = { layout = "vertical" } },
+      })
+    end,
+    keys = {
+      { "<leader>p",  "<cmd>FzfLua files<cr>",     desc = "Find files" },
+      { "<leader>fn", "<cmd>FzfLua files<cr>",     desc = "Search filenames" },
+      { "<leader>fc", "<cmd>FzfLua live_grep<cr>", desc = "Search file contents" },
+      { "<leader>sb", "<cmd>FzfLua buffers<cr>",   desc = "Find buffers" },
+    },
+  },
+
   -- Buffer tab bar
   {
     "akinsho/bufferline.nvim",
@@ -151,7 +169,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { silent = true })
 
 -- Buffer navigation
